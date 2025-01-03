@@ -1,4 +1,4 @@
-from .mycog import MyCog
+from .friday import FridayPoster
 
 
 async def setup(bot):
