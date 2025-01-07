@@ -20,9 +20,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 from redbot.core import commands
+from redbot.core.bot import Red
 import datetime
 import pytz
 import asyncio
+import discord
+from datetime import datetime
+import sys
 
 class FridayPoster(commands.Cog):
     """Posts a link on Fridays in California"""
