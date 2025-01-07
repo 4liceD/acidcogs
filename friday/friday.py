@@ -28,7 +28,7 @@ import discord
 from datetime import datetime
 import sys
 
-class FridayPoster(commands.Cog):
+class friday(commands.Cog):
     """Posts a link on Fridays in California"""
 
     def __init__(self, bot):
