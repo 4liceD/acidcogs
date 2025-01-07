@@ -49,29 +49,29 @@ class FridayPoster(commands.Cog):
         self.post_toggle[ctx.guild.id] = not self.post_toggle[ctx.guild.id]
         await ctx.send(f"Friday post toggle set to {self.post_toggle[ctx.guild.id]}")
 
-@commands.command()
-@commands.has_permissions(manage_guild=true)
-async def testfridaymessage(self, ctx):
-    """Test the Friday message"""
-    if ctx.guild.id in self.post_channel:
-        channel = ctx.guild.get_channel(self.post_channel[ctx.guild.id])
-        if channel and self.post_toggle[ctx.guild.id]:
-            await channel.send(f"It's Friday in California! Click here to get started: {self.link}")
-        else:
-            ctx.send("Please set the Friday channel first.")
+    @commands.command()
+    @commands.has_permissions(manage_guild=true)
+    async def testfridaymessage(self, ctx):
+        """Test the Friday message"""
+        if ctx.guild.id in self.post_channel:
+            channel = ctx.guild.get_channel(self.post_channel[ctx.guild.id])
+            if channel and self.post_toggle[ctx.guild.id]:
+                await channel.send(f"It's Friday in California! Click here to get started: {self.link}")
+            else:
+                ctx.send("Please set the Friday channel first.")
 
-@commands.cog_listener()
-async def on_ready(self):
-    self.bot.loop.create_task(self.check_friday())
+    @commands.cog_listener()
+    async def on_ready(self):
+        self.bot.loop.create_task(self.check_friday())
 
-async def check_friday(self):
-    await self.bot.waut_until_ready()
-    while not self.bot.is_closed():
-        now = datetime.datetime.now(pytz.timezone('US/Pacific'))
-        if now.weekday() == 4 and now.hour == 0 and now.minute == 1: # 4 is Friday in Python datetime
-            if guild in self.bot.guilds:
-                if guild.id in self.post_channel and guild.id in self.post_toggle and self.post_toggle[guild.id]:
-                    channel = guild.get_channel(self.post_channel[guild.ic])
-                    if channel:
-                        await channel.send(f"It's Friday in California! Ckick here to get started: {self.link}")
-                        await asyncio.sleep(60)
+    async def check_friday(self):
+        await self.bot.waut_until_ready()
+        while not self.bot.is_closed():
+            now = datetime.datetime.now(pytz.timezone('US/Pacific'))
+            if now.weekday() == 4 and now.hour == 0 and now.minute == 1: # 4 is Friday in Python datetime
+                if guild in self.bot.guilds:
+                    if guild.id in self.post_channel and guild.id in self.post_toggle and self.post_toggle[guild.id]:
+                        channel = guild.get_channel(self.post_channel[guild.ic])
+                        if channel:
+                            await channel.send(f"It's Friday in California! Ckick here to get started: {self.link}")
+                            await asyncio.sleep(60)
