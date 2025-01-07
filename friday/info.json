@@ -5,7 +5,7 @@
     "disabled": false,
     "short": "Friday in California",
     "description": "Posts the meme video in a specified channel when it's friday in California",
-    "tags": [],
+    "tags": ["friday"],
     "requirements": ["pytz", "datetime"],
     "hidden": false,
     "end_user_data_statement": "This cog does not store any End User Data."
