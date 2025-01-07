@@ -69,7 +69,7 @@ class FridayPoster(commands.Cog):
         self.bot.loop.create_task(self.check_friday())
 
     async def check_friday(self):
-        await self.bot.waut_until_ready()
+        await self.bot.wait_until_ready()
         while not self.bot.is_closed():
             now = datetime.datetime.now(pytz.timezone('US/Pacific'))
             if now.weekday() == 4 and now.hour == 0 and now.minute == 1: # 4 is Friday in Python datetime
@@ -79,3 +79,5 @@ class FridayPoster(commands.Cog):
                         if channel:
                             await channel.send(f"It's Friday in California! Ckick here to get started: {self.link}")
                             await asyncio.sleep(60)
+            else:
+                await asyncio.sleep(60)
