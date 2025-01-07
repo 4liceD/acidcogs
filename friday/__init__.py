@@ -1,5 +1,10 @@
+from redbot.core.bot import Red
+from redbot.core.utils import get_end_user_data_statement
+
 from .friday import FridayPoster
 
+__red_end_user_data_statement__ = get_end_user_data_statement(__file__)
 
-async def setup(bot):
-    await bot.add_cog(MyCog(bot))
+
+async def setup(bot: Red):
+    await bot.add_cog(FridayPoster(bot))
